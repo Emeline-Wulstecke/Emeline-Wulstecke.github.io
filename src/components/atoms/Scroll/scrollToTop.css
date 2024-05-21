@@ -14,7 +14,7 @@
     transition: all 0.3s ease;
 
     @media (min-width: 768px) {
-        right: 20px;
+        right: 30px;
     }
   }
   

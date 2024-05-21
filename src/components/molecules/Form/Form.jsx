@@ -10,7 +10,15 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (contactForm.current.user_name.value && contactForm.current.user_email.value && contactForm.current.message.value) {
+    const email = contactForm.current.email.value;
+    const atIndex = email.indexOf('@');
+
+    if (
+      contactForm.current.name.value &&
+      email &&
+      atIndex !== -1 && 
+      contactForm.current.message.value
+    ) {
       emailjs
         .sendForm('service_4am808m', 'template_fo948bf', contactForm.current, 'JLlZHdARt2Uvm4PdA')
         .then(
@@ -27,7 +35,7 @@ const Form = () => {
           },
         );
     } else {
-      alert("Veuillez remplir tous les champs du formulaire avant d'envoyer.");
+      alert("Veuillez remplir tous les champs du formulaire correctement avant d'envoyer.");
     }
   };
 

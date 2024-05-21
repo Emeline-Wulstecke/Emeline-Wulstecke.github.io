@@ -33,8 +33,9 @@
 
 /* Slider */
 .slider-container {
-  margin: 20px auto;
+  margin:auto;
   width: 90%; 
+  height: auto;
 }
 
 .slick-slider {
@@ -99,15 +100,15 @@
 }
 
 .slick-prev {
-  left: -55px;
+  left: -45px !important;
 }
 
 .slick-next {
-  right: -55px;
+  right: -45px !important;
 }
 
 .slick-prev:before, .slick-next:before {
-  font-size: 40px;
+  font-size: 25px !important ;
   line-height: 1;
   opacity: 0.75;
   color: #333;

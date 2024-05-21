@@ -1,5 +1,5 @@
 import './carrousel.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { portfolio } from '../../../assets/data.json';
 import Card from '../Card/Card';
@@ -10,8 +10,29 @@ import Link from '../../atoms/link/Link';
 import Button from '../../atoms/Button/Button';
 
 function Carrousel() {
+  const [cardsPerSlide, setCardsPerSlide] = useState(3);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+
+  const handleResize = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 480) {
+      setCardsPerSlide(1);
+    } else if (screenWidth < 1024) {
+      setCardsPerSlide(2);
+    } else {
+      setCardsPerSlide(3);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Appel initial pour définir la valeur initiale de cardsPerSlide
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const settings = {
     className: "center",
@@ -19,34 +40,9 @@ function Carrousel() {
     infinite: true,
     dots: true,
     centerPadding: "60px",
-    slidesToShow: 3,
+    slidesToShow: cardsPerSlide,
     slidesToScroll: 1,
     speed: 700,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
   };
 
   const openModal = (projectId) => {

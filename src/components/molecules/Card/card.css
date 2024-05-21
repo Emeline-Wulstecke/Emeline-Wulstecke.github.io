@@ -1,5 +1,4 @@
 #card {
-    flex: 1 0 250px;
     background: var(--primary-color);
     margin: 1.5rem;
     padding: 10px;

@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     width:100%;
     background-color: var(--tertiary-color);
     box-sizing: border-box;
 
     h2 {
        padding-top: 20px;
-       padding-bottom: 0;
+       padding-bottom: 5px;
     }
 }

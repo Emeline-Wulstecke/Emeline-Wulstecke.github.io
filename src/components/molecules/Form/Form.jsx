@@ -42,12 +42,12 @@ const Form = () => {
   return (
     <div>
       <form ref={contactForm} onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" name="name" />
-        <label>Email</label>
-        <input type="email" name="email" />
-        <label>Message</label>
-        <textarea name="message" />
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" id="email" />
+        <label htmlFor="message">Message</label>
+        <textarea name="message" id="message" />
         <input type="submit" value="Envoyer" className='button' />
         {isSent && <p>Merci votre message a bien été envoyé !</p>}
       </form>

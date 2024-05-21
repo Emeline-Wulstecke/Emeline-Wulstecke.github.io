@@ -1,0 +1,192 @@
+[id='skills'] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
+
+    p {
+        width: 80%;
+        padding: 50px 20px 20px 50px;
+        border-top-left-radius: 150px 100px;
+        background-color: var(--primary-color);
+        box-sizing: border-box;
+        text-align: justify;
+        margin-bottom: 20px;
+
+        @media (min-width: 1200px) {
+            border-top-right-radius: 150px 100px;
+            text-align: center;
+        }
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        box-sizing: border-box;
+
+        @media (min-width: 1200px) {
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 30px 50px;
+        }
+
+        .line {
+            position: relative;
+            width: 200px;
+            border: 1px solid var(--tertiary-color);
+
+            @media (min-width: 1200px) {
+                display: none;
+            }
+        }
+
+        .line::before,
+        .line::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: var(--tertiary-color);
+        }
+
+        .line::before {
+            top: 11px;
+            right: -1px;
+            transform: translateY(-50%);
+        }
+
+        .line::after {
+            bottom: 11px;
+            left: -1px;
+            transform: translateY(50%);
+        }
+
+
+        .line2 {
+            position: relative;
+            width: 200px;
+            border: 1px solid var(--tertiary-color);
+
+            @media (min-width: 1200px) {
+                display: none;
+            }
+        }
+
+        .line2::before,
+        .line2::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: var(--tertiary-color);
+        }
+
+        .line2::before {
+            top: -10px;
+            right: -1px;
+            transform: translateY(-50%);
+        }
+
+        .line2::after {
+            bottom: -11px;
+            left: -1px;
+            transform: translateY(50%);
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 100px 0 100px 0;
+        margin: 12px;
+        padding: 20px;
+        width: 80%;
+        background-color: var(--primary-color);
+        box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.5);
+        transition: all 0.2s ease, font-weight 0.2s ease, transform 0.4s ease;
+
+        @media (min-width: 1200px) {
+            width: 400px;
+            height: 400px;
+            padding: 0;
+            padding-right: 10px;
+            padding-bottom: 40px;
+        }
+    }
+
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding-top: 20px;
+
+        @media (min-width: 768px) {
+            gap: 20px;
+            padding-top: 30px;
+        }
+    }
+
+    li {
+        width: calc((100% - 40px) / 2);
+        margin-bottom: 20px;
+
+
+        @media (min-width: 768px) {
+            width: calc((100% - 60px) / 3);
+        }
+    }
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            transform: scale(1.2);
+
+            figcaption {
+                opacity: 1;
+            }
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .img-more {
+            width: 75px;
+            height: 75px;
+        }
+
+        figcaption {
+            padding: 5px;
+            background-color: var(--tertiary-color);
+            color: black;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+
+            p {
+                align-self: center;
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+                background-color: transparent;
+            }
+
+        }
+    }
+}

@@ -88,7 +88,6 @@
 
 /* Arrows de navigation */
 .slick-prev, .slick-next {
-  font-size: 0;
   line-height: 0;
   position: absolute;
   top: 50%;
@@ -100,11 +99,18 @@
 }
 
 .slick-prev {
-  left: -45px !important;
+  left: -28px !important;
+
+  @media (min-width: 768px) {
+    left: -45px !important;
+  }
 }
 
 .slick-next {
-  right: -45px !important;
+  right: -23px !important;
+ @media (min-width: 768px) {
+    right: -45px !important;
+  }
 }
 
 .slick-prev:before, .slick-next:before {

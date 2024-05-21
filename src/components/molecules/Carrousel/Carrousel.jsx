@@ -1,5 +1,5 @@
 import './carrousel.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { portfolio } from '../../../assets/data.json';
 import Card from '../Card/Card';
@@ -13,6 +13,7 @@ function Carrousel() {
   const [cardsPerSlide, setCardsPerSlide] = useState(3);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const sliderRef = useRef(null);
 
   const handleResize = () => {
     const screenWidth = window.innerWidth;
@@ -25,12 +26,24 @@ function Carrousel() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (sliderRef.current) {
+      if (event.key === "ArrowRight") {
+        sliderRef.current.slickNext();
+      } else if (event.key === "ArrowLeft") {
+        sliderRef.current.slickPrev();
+      }
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    handleResize(); // Appel initial pour définir la valeur initiale de cardsPerSlide
+    window.addEventListener("keydown", handleKeyDown);
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -39,7 +52,7 @@ function Carrousel() {
     centerMode: true,
     infinite: true,
     dots: true,
-    centerPadding: "60px",
+    centerPadding: "50px",
     slidesToShow: cardsPerSlide,
     slidesToScroll: 1,
     speed: 700,
@@ -63,7 +76,7 @@ function Carrousel() {
 
   return (
     <div className="slider-container">
-      <Slider {...settings}>
+      <Slider ref={sliderRef} {...settings}>
         {portfolio.map((project) => (
           <Card
             key={project.id}

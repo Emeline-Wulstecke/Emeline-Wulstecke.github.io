@@ -6,9 +6,4 @@
     width:100%;
     background-color: var(--tertiary-color);
     box-sizing: border-box;
-
-    h2 {
-       padding-top: 20px;
-       padding-bottom: 5px;
-    }
 }

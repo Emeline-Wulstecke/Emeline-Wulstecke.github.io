@@ -1,11 +1,11 @@
 import React from 'react';
 import './card.css';
 
-const Card = ({ project, onCardClick, isActive }) => {
+const Card = ({ project, onCardClick }) => {
     const { image, alt, category, name } = project;
 
     return (
-        <figure id="card" onClick={onCardClick} className={isActive ? 'active' : ''}>
+        <figure id="card" onClick={onCardClick}>
             <img src={image} alt={alt} loading='lazy' />
             <figcaption>
                 <h3>{name}</h3>

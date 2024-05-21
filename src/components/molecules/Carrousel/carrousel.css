@@ -45,11 +45,20 @@
   margin: 0 10px;
 }
 
+.center {
+  transition: 0.3s;
+}
+
+.center .slick-center{
+  opacity: 1;
+  transform: translateY(-25px);
+}
+
 
 /* Dots de navigation */
 .slick-dots {
   position: absolute;
-  bottom: 20px;
+  bottom: -20px !important;
   display: flex !important;
   justify-content: center;
   width: 100%;

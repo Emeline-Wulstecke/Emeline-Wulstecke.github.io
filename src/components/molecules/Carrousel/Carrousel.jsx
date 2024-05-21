@@ -18,9 +18,10 @@ function Carrousel() {
     centerMode: true,
     infinite: true,
     dots: true,
-    centerPadding: "70px",
+    centerPadding: "60px",
     slidesToShow: 3,
-    speed: 500,
+    slidesToScroll: 1,
+    speed: 700,
     responsive: [
       {
         breakpoint: 1200,
@@ -36,7 +37,6 @@ function Carrousel() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 2
         }
       },
       {

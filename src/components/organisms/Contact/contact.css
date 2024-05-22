@@ -13,7 +13,7 @@
 
     img {
         object-fit: cover;
-        width: 80%;
+        width: 60%;
         height: auto;
 
         @media (min-width: 1200px) {

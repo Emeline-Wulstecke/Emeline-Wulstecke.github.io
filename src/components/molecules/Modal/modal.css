@@ -60,7 +60,7 @@ body.modal-open {
 
 .modal {
     position: absolute;
-    top: 200px;
+    top: 150px;
     background-color: var(--primary-color);
     border-radius: 10px;
     z-index: 10000;
@@ -71,7 +71,7 @@ body.modal-open {
     overflow-y: scroll; 
 
     @media (min-width: 768px) {
-        top:150px;
+        top:200px;
         overflow-y: hidden;
     }
 }

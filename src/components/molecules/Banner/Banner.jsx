@@ -10,7 +10,7 @@ const Banner = () => {
                 <p>By Emeline</p>
             </div>
                 <figure>
-                    <img src={bannerImg} alt="image design avec la phrase Welcome to my portfolio" loading='lazy'></img>
+                    <img src={bannerImg} alt="image design avec la phrase Welcome to my portfolio"></img>
                 </figure>
         </section>
     )

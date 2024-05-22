@@ -18,7 +18,7 @@ const Footer = () => {
                         <Link url={link.url} content={
                             <>
                                 <i className={link.icon}></i>
-                                <span>{link.name}</span>
+                                <span className="visually-hidden">{link.name}</span>
                             </>
                         } aria-label={link.name} />
                     </li>

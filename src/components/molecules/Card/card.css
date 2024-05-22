@@ -14,7 +14,7 @@
 
 
 #card img {
-    width: 100%;
+    width: 280px;
     height: 200px;
     border-radius: 20px 20px 0 0;
     object-fit: cover;

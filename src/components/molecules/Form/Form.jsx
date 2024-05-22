@@ -42,6 +42,7 @@ const Form = () => {
   return (
     <div>
       <form ref={contactForm} onSubmit={handleSubmit}>
+      {isSent && <p>Merci votre message a bien été envoyé !</p>}
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" />
         <label htmlFor="email">Email</label>
@@ -49,7 +50,6 @@ const Form = () => {
         <label htmlFor="message">Message</label>
         <textarea name="message" id="message" />
         <input type="submit" value="Envoyer" className='button' />
-        {isSent && <p>Merci votre message a bien été envoyé !</p>}
       </form>
     </div>
   );

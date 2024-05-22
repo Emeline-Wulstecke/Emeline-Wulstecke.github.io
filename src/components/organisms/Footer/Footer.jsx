@@ -12,7 +12,12 @@ const Footer = () => {
             <ul>
                 <li><a href={`mailto:${data.email.url}`}><i className={data.email.icon}></i></a></li>
                 {data.links.map((link, index) => (
-                    <li key={index}><Link url={link.url} content={<i className={link.icon}></i>} /></li>
+                    <li key={index}><Link url={link.url} content={
+                        <>
+                          <i className={link.icon}></i>
+                          <span className="visually-hidden">{link.name}</span>
+                        </>
+                      } aria-label={link.name}/></li>
                 ))}
 
             </ul>

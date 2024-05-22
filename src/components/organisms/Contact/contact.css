@@ -5,7 +5,7 @@
     background-color: var(--primary-color);
     margin-bottom: 50px;
     box-sizing: border-box;
-    box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5); 
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.5);
 
     @media (min-width: 1200px) {
         height: 600px;
@@ -13,10 +13,11 @@
 
     img {
         object-fit: cover;
-        width: 100%;
+        width: 50%;
+        height: auto;
 
         @media (min-width: 1200px) {
-           max-width: 100%;
+            width: 100%;
         }
     }
 
@@ -31,7 +32,7 @@
             padding-top: 20px;
 
             @media (min-width: 768px) {
-                padding-top: 50px;    
+                padding-top: 50px;
             }
         }
     }

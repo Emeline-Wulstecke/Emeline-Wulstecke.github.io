@@ -14,8 +14,9 @@
         text-align: justify;
         margin-bottom: 20px;
 
-        @media (min-width: 1200px) {
-            border-top-right-radius: 150px 100px;
+        @media (min-width: 768px) {
+            width: 100%;
+            border-radius: 0;
             text-align: center;
         }
     }
@@ -41,7 +42,7 @@
             width: 200px;
             border: 1px solid var(--tertiary-color);
 
-            @media (min-width: 1200px) {
+            @media (min-width: 768px) {
                 display: none;
             }
         }
@@ -109,7 +110,6 @@
         padding: 20px;
         width: 80%;
         background-color: var(--primary-color);
-        box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.5);
         transition: all 0.2s ease, font-weight 0.2s ease, transform 0.4s ease;
 
         @media (min-width: 1200px) {

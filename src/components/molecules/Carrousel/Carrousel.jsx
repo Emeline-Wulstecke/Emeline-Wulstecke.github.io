@@ -1,5 +1,5 @@
 import './carrousel.css';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import { portfolio } from '../../../assets/data.json';
 import Card from '../Card/Card';
@@ -15,7 +15,7 @@ function Carrousel() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const sliderRef = useRef(null);
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 480) {
       setCardsPerSlide(1);
@@ -24,9 +24,9 @@ function Carrousel() {
     } else {
       setCardsPerSlide(3);
     }
-  };
+  }, []);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (sliderRef.current) {
       if (event.key === "ArrowRight") {
         sliderRef.current.slickNext();
@@ -34,7 +34,7 @@ function Carrousel() {
         sliderRef.current.slickPrev();
       }
     }
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -45,34 +45,34 @@ function Carrousel() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleResize, handleKeyDown]);
 
-  const settings = {
+  const settings = useMemo(() => ({
     className: "center",
     centerMode: true,
     infinite: true,
     dots: true,
-    centerPadding: "50px",
+    centerPadding: "40px",
     slidesToShow: cardsPerSlide,
     slidesToScroll: 1,
     speed: 700,
-  };
+  }), [cardsPerSlide]);
 
-  const openModal = (projectId) => {
+  const openModal = useCallback((projectId) => {
     setSelectedProjectId(projectId);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedProjectId(null);
-  };
+  }, []);
 
-  const getProjectById = (projectId) => {
+  const getProjectById = useCallback((projectId) => {
     return portfolio.find((project) => project.id === projectId);
-  };
+  }, []);
 
-  const selectedProject = selectedProjectId ? getProjectById(selectedProjectId) : null;
+  const selectedProject = useMemo(() => selectedProjectId ? getProjectById(selectedProjectId) : null, [selectedProjectId, getProjectById]);
 
   return (
     <div className="slider-container">

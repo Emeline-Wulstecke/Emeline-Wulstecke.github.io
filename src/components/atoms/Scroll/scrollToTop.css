@@ -14,9 +14,13 @@
     transition: all 0.3s ease;
 
     @media (min-width: 768px) {
-      right: 5px;
+      right: 20px;
   }
 
+  @media (min-width: 1200px) {
+      right: 40px;
+
+  } 
   }
   
   .scroll-to-top-button:hover {
